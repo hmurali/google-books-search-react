@@ -5,6 +5,7 @@ import { Row, Col } from "../../components/Grid";
 import { BookList, BookListItem } from "../../components/BookList";
 import EmptyList from "../../components/EmptyList";
 
+
 class Search extends Component {
     state = {
         searchResult: [],
@@ -20,10 +21,13 @@ class Search extends Component {
         let googleBooksUrl = `https://www.googleapis.com/books/v1/volumes?q=${
             this.state.query
         }`;
-        axios.get(googlebooksUrl).then(res => {
+        axios
+          .get(googleBooksUrl)
+          .then(res => {
             //console.log(res);
             this.displayResult(res.data);
-        }).catch(err => console.log(err));
+          })
+          .catch(err => console.log(err));
     };
 
     handleInput = event => {
@@ -35,6 +39,9 @@ class Search extends Component {
         //console.log("Query", this.state.query);
     };
 
+    
+    
+    
     render() {
         return (
             <Row>
@@ -67,7 +74,8 @@ class Search extends Component {
                                         title={book.volumeInfo.title}
                                         synopsis={book.volumeInfo.description ? 
                                             book.volumeInfo.description : "No Description Available"}
-                                        link={book.volumeInfo.imageLinks.thumbnail ?
+                                        link={book.volumeInfo.infoLink}
+                                        thumbnail={book.volumeInfo.imageLinks.thumbnail ?
                                             book.volumeInfo.imageLinks.thumbnail : "#"}
                                             
                                         />
@@ -78,6 +86,7 @@ class Search extends Component {
                         :
                         <EmptyList/>
                         }
+
                     </div>
                 </Col>
             </Row>
