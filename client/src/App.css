@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+
+.Toastify__toast {
+  border-radius: 8px;
+  text-align: center;
+  margin: auto;
+}
