@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 import { Container } from "./components/Grid";
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
